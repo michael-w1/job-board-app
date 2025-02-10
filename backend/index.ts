@@ -20,10 +20,10 @@ if (!mongoURI) {
 
 mongoose.connect(mongoURI);
 
-const admin_id = process.env.ADMIN_ID;
-if (!admin_id) {
-    throw new Error('MONGO_URI is not defined in the environment variables.');
-}
+// const admin_id = process.env.ADMIN_ID;
+// if (!admin_id) {
+//     throw new Error('MONGO_URI is not defined in the environment variables.');
+// }
 const app: Express = express();
 
 app.use(express.json());
@@ -35,17 +35,17 @@ app.use(
 
 
 app.get("/", (req: Request, res: Response) => {
-    res.json({ data: "Hello World is it working" });
+    res.json({ data: "Listening at Port 8000" });
 });
 
 
 app.use("/api/my/user", userRoute);
 app.use("/api/job", jobRoute); 
 
-if (!process.env.ACCESS_TOKEN_SECRET) {
-    console.log("JWT Secret Token is not setup in .env");
-    process.exit(0);
-}
+// if (!process.env.ACCESS_TOKEN_SECRET) {
+//     console.log("JWT Secret Token is not setup in .env");
+//     process.exit(0);
+// }
 
 
 

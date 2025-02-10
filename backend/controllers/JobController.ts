@@ -11,7 +11,7 @@ const getAllJobs = async (req: Request, res: Response) => {
         const jobs = await Job.find(
             {$or: [
                 { userId: req.userId},  // Jobs created by the current user
-                { userId: process.env.ADMIN_ID }  
+                // { userId: process.env.ADMIN_ID }  
             ]}).sort({ createdOn: 1 });
 
         // console.log("job", jobs); 
